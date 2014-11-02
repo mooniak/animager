@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0033)http://eptcomic.com/ept1movie.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Animating a Git Repository</title>
+    <meta name="Author" content="Mark V.">
+    <link href="./Animating a Git Repository_files/ept.css" rel="stylesheet" title="EPT in style" type="text/css">
+    <link rel="icon" type="image/ico" href="http://eptcomic.com/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="EPT updates" href="http://eptcomic.com/news/atom.xml">
+  </head>
+  <body>
+    <div class="navbar">
+      <ul>
+        <li><a href="http://eptcomic.com/">Home</a>
+        </li><li><a href="http://eptcomic.com/cgi-bin/comic.cgi?volume=1">Comics</a>
+        </li><li><a href="http://eptcomic.com/cgi-bin/news.cgi">News</a>
+        </li><li><a href="http://eptcomic.com/cgi-bin/archive.cgi">Archive</a>
+        </li><li><a href="http://eptcomic.com/credits.htm">Credits</a>
+        </li><li><a href="http://eptcomic.com/faq.htm">FAQ</a>
+        </li><li><a href="http://eptcomic.com/extras.htm">Extras</a>
+        </li><li><a href="http://eptcomic.com/swag.htm">Shop</a>
+        </li><li><a href="http://eptcomic.com/links.htm">Links</a>
+      </li></ul>
+    </div>
+    
+    <div class="article">
+
+    <h1>Animating a Git Repository</h1>
+
+    <a href="http://eptcomic.com/videos/ept1.ogv" title="Click for ogg video">
+    <img src="./Animating a Git Repository_files/ept1.png" alt="Montage of Hensen ex Machina, issue 1">
+    </a>
+    <p>
+      To celebrate EPT's first issue,
+      <a href="http://eptcomic.com/cgi-bin/comic.cgi?volume=1">Round Midnight</a>,
+      we made a two minute animation of all 24 pages being drawn:
+    </p>
+    <ul>
+      <li><a href="http://eptcomic.com/videos/ept1.ogv">ept1.ogv</a> (7.5 MB ogg video)
+      </li><li><a href="http://eptcomic.com/videos/ept1.webm">ept1.webm</a> (11 MB webm video)
+    </li></ul>
+    <p>
+      If the ogg video doesn't play in your browser, you can
+      <a href="http://www.youtube.com/watch?v=WY9A2mug4dw">watch it on YouTube</a>
+      or install an ogg-compatible video player like
+      <a href="http://www.videolan.org/vlc/">VLC</a>.
+    </p>
+    <hr>
+    <h2>But wait, there's more!</h2>
+    <ul>
+      <li><a href="http://eptcomic.com/ept1movie.htm#gource">A more "generic" repository animation using
+        Gource</a> (added 5/26/2012)
+      </li><li><a href="http://eptcomic.com/ept1movie.htm#DIY">Instructions for making your own animations</a>
+      </li><li><a href="http://eptcomic.com/ept1movie.htm#ch2">Animation for Chapter 2: Sweet as Sin</a> 
+      (added 2/10/2012)
+    </li></ul>
+    <hr>
+    <a id="ch2"><h2>Chapter 2</h2></a>
+    <a href="http://eptcomic.com/videos/ept2.ogv" title="Click for ogg video">
+    <img src="./Animating a Git Repository_files/ept2.png" alt="Montage of Hensen ex Machina, issue 2">
+    </a>
+    <p>
+      Here's the animation for chapter 2, 
+      <a href="http://eptcomic.com/cgi-bin/comic.cgi?volume=1&issue=2">Sweet as Sin</a>:
+    </p>
+    <ul>
+      <li><a href="http://eptcomic.com/videos/ept2.ogv">ept2.ogv</a> (5.3 MB ogg video)
+      </li><li><a href="http://eptcomic.com/videos/ept2.webm">ept2.webm</a> (5.8 MB webm video)
+      </li><li>Also available on <a href="http://www.youtube.com/watch?v=5Ad8bbd-izM">YouTube</a>
+    </li></ul>
+    <hr>
+    <a id="DIY"><h2>DIY</h2></a>
+    <p>Here's how we made the animation, in case you'd like to play along
+      at home:
+    </p>
+    <ol>
+      <li>Install 
+          <a href="http://inkscape.org/">Inkscape</a>, 
+          <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a>, 
+          <a href="http://git-scm.com/">Git</a>, 
+          <a href="http://www.python.org/">Python</a>,
+          <a href="http://ffmpeg.org/">Ffmpeg</a>, and
+          <a href="http://v2v.cc/~j/ffmpeg2theora/">Ffmpeg2theora</a>.
+          On <a href="http://www.ubuntu.com/">Ubuntu</a> <a href="http://www.kernel.org/">Linux</a>, you can do this via:
+          <pre>apt-get install inkscape imagemagick git-core python ffmpeg ffmpeg2theora</pre>
+          If you want to include a soundtrack,
+          you'll also want
+          <a href="http://www.xiph.org/oggz/">oggz</a> and 
+          <a href="http://www.xiph.org/downloads/">vorbis-tools</a>:
+          <pre>apt-get install oggz-tools vorbis-tools</pre>
+      </li><li>Make a new directory for your comic and initialize a git repository:
+        <pre>mkdir ~/ElectricPuppetTheatre
+cd ~/ElectricPuppetTheatre
+git init</pre>
+        <i>(All of the remaining commands will be run from this directory)</i>
+      </li><li>Use Inkscape to generate a template for your comic pages, or
+        <a href="http://eptcomic.com/images/Template.svg">download ours</a>.  Save it as
+        <b>~/ElectricPuppetTheatre/Template.svg</b>.  If you create your
+        own template, make the width:height ratio 2:3 (<i>e.g.</i> 1200:1800).
+      </li><li>Add the template to your git repository:
+        <pre>git add Template.svg
+git commit Template.svg -m "Template for new pages"</pre>
+      </li><li>Make a subdirectory for the first issue and initialize the
+        pages from the template:
+        <pre>mkdir 001
+for i in {01..24}; do
+  cp Template.svg 001/"Page-${i}.svg";
+done
+</pre>
+      </li><li>Draw each page in Inkscape.  Pause periodically to commit your
+        work to the git repository.  The first time you commit a page,
+        you will need to add it to the repository:
+        <pre>git add 001/Page-01.svg
+git commit 001/Page-01.svg -m "Started page 1 of issue 1"</pre>
+        For subsequent commits, you can skip the add step:
+        <pre>git commit 001/Page-01.svg -m "Inked first panel"</pre>
+      </li><li>Now we're ready to animate the repository!  First, make
+        a working directory for the rendered images:
+        <pre>mkdir IssueMovie</pre>
+      </li><li>Use our <a href="http://eptcomic.com/code/issuemovie.py">issuemovie.py</a>
+        script to render a montage of the pages for each commit in
+        the archive:
+        <pre>chmod "a+x" issuemovie.py
+./issuemovie.py</pre>
+        Here's what the script is doing behind the scenes:
+        <ul>
+          <li>Find all of the commits that touch this issue with
+            <b>git log</b>.
+          </li><li>Find the pages touched by a particular commit with
+            <b>git show</b>.
+          </li><li>Extract each page version from the repository with
+            <b>git cat-file blob</b>.
+          </li><li>Render each page to a 160x240 pixel PNG with inkscape.
+          </li><li>Render each set of pages as an 8x3 grid with the 
+            <b>montage</b> tool from ImageMagick.
+        </li></ul>
+        <i>(This step took about 40 minutes to render 656 commits
+          on 32-bit Ubuntu 10.04 on a 2GHz T7300).</i>
+      </li><li>Move to the working directory for the final rendering steps:
+        <pre>cd IssueMovie</pre>
+      </li><li>Use ImageMagick to convert the PNG (lossless) frames to
+        JPEGs, setting quality to 100% to avoid lossy compression:
+        <pre>for i in frame*.png ; do 
+  convert -quality 100 $i `basename $i png`jpg; 
+done</pre>
+      </li><li><p>Use ffmpeg2theora to combine the frames into an ogg video:
+        </p><pre>ffmpeg2theora -F 6 -v 10 -i frame%04d.jpg -o MOS.ogv</pre>
+        <b>-v 10</b> gives the highest image quality, which is necessary
+        to keep the pencils from blurring and to avoid artifacts on flat
+        images, and <b>-F</b> sets the frame rate.<p></p>
+        <p>
+        For <i>Round Midnight</i>, we had 656 frames, for a length of
+        1 minute 49 seconds at 6 frames per second.  Combining this
+        with a slightly longer audio track gives the nice effect of
+        holding for a few seconds on the final image; we used a 2 minute
+        14 second mix of Sara and Louis jamming on the Electric Puppet
+        Waltz, converting it to ogg audio with vorbis-tools:
+        </p><pre>oggenc -n MOI.oga GuitarWaltz.wav</pre>
+        and then combining (muxing) the audio and video streams with
+        oggz-tools:
+        <pre>oggz merge -o ept1.ogv MOS.ogv MOI.oga</pre>
+        <p></p>
+    </li></ol>
+    <h1>Bonus: Animating for YouTube</h1>
+    <p>The instructions above work for making an animation in the open,
+      patent-safe OGG format.  Unfortunately, there are many places that
+      OGG won't play.  Mark Pilgrim's Dive Into HTML5 <a title="410" href="http://eptcomic.com/images/410.png">had</a> an excellent
+      discussion of <a title="cached copy from the internet archive" href="http://web.archive.org/web/20110726002026/http://diveintohtml5.org/video.html">the hairy details of distributing video on the web</a>, the short version of which is:
+      </p><blockquote>There is no single combination of containers and codecs that works in all HTML5 browsers.</blockquote>
+      More importantly, it is impossible to support all platforms without
+      using patent-encumbered formats.  Rather than deal with this directly,
+      we will punt the problem to Google by uploading our video to YouTube
+      which supports uploads in the patent-safe WebM format.
+    <p></p>
+    <p>
+      Here are the things we need to know about YouTube:
+    </p>
+    <ul>
+      <li>YouTube supports OGG audio (vorbis) but not OGG video
+        (theora).  It will let you upload an OGG audio+video file,
+        but the result will be an audio stream on top of a green screen
+        (so don't do this).
+      </li><li>The audio and video tracks need to be the same length.  If they
+        aren't, YouTube will truncate the video to the shortest track.
+    </li></ul>
+    <p>
+      Got that?  Okay, here we go:
+    </p>
+    <ol>
+      <li>Prepare your frames by following steps 1-10 of the OGG instructions
+        above.
+      </li><li>Pad out the video portion to match the audio portion using
+        additional "frames" symlinked to the last real frame.  Our last
+        frame was frame0656.jpg.  We added a "closing credit" to this
+        in inkscape, giving frame0657, then added 142 symlinked copies
+        (23 seconds at 6 fps):
+        <pre>for i in {658..800}; do ln --symbolic frame0657.jpg "frame0${i}.jpg"; done</pre>
+      </li><li>Use Ffmpeg to generate a WebM video, using our previous OGG audio
+        track:
+        <pre>ffmpeg -qscale 1 -r 6 -b 9600 -i frame%04d.jpg -vcodec libvpx -i MOI.oga ept1.webm</pre>
+    </li></ol>
+    <p>Ffmpeg has WebM support starting with version 0.6.  If your system
+      copy is older than this (as was the case for us on Ubuntu 10.04)
+      you can compile a single-user bleeding-edge copy without overwriting
+      the system copy.  Here's how:
+    </p>
+    <ol>
+      <li>Make sure you have the GNU toolchain:
+        <pre>sudo apt-get install build-essential</pre>
+      </li><li>Make a build directory:
+        <pre>mkdir ffmpegwebm
+cd ffmpegwebm
+mkdir local</pre>
+      </li><li>Download and compile the latest V8 code, targeting our build 
+        directory:
+        <pre>git clone http://git.chromium.org/webm/libvpx.git
+cd libvpx
+./configure --prefix=../local/
+make &amp;&amp; make install
+cd ..</pre>
+      </li><li>Download and compile the latest Ffmpeg code, enabling the WebM
+        codecs: 
+        <pre>git clone git://git.videolan.org/ffmpeg
+cd ffmpeg
+./configure --prefix=../local/ --enable-libvorbis --enable-libvpx --enable-gpl \
+--extra-cflags=-I../local/include/ --extra-libs=-L../local/lib/
+make &amp;&amp; make install
+cd ../..</pre>
+        <i>(The <b>--extra</b>
+          config flags tell autotools to look for the V8 headers and libraries
+          in our local build directory)</i>
+      </li><li>To reference the local build, step 3 above is now:
+        <pre>ffmpegwebm/local/bin/ffmpeg -qscale 1 -r 6 -b 9600 \
+-i frame%04d.jpg -vcodec libvpx -i MOI.oga ept1.webm</pre>
+    </li></ol>
+    <hr>
+    <a id="gource"><h2>"Generic" animation with Gource</h2></a>
+    <a href="http://eptcomic.com/videos/gource2.webm" title="Click for webm video">
+    <img src="./Animating a Git Repository_files/gource.png" alt="EPT source repository">
+    </a>
+    <p>
+      <a href="http://code.google.com/p/gource/">Gource</a> is a nifty tool for animating repositories
+      that track files that are less obviously visual (<i>i.e.</i>, anything 
+      other than comics).  Rather than rendering the files directly, it
+      animates the file system tree with contributors flitting hither and
+      thither through the code as they hack on it.
+    </p>
+    <p>
+      We used gource to animate a merge of the full comic repository
+      (currently tracking 6 of the 12 chapters of <i>Hensen ex Machina</i>)
+      with the repository that manages our website:
+    </p>
+    <ul>
+      <li><a href="http://eptcomic.com/videos/gource2.webm">gource2.webm</a> (7 MB webm video)
+      </li><li>Also available on <a href="http://www.youtube.com/watch?v=_fph1MD7LQk">YouTube</a>
+    </li></ul>
+    <p>
+      If you'd like to try gource yourself, it's super easy.  On
+      <a href="http://www.ubuntu.com/">Ubuntu</a> 
+      <a href="http://www.kernel.org/">Linux</a> it's as simple as:
+    </p>
+    <pre>apt-get install gource
+cd ~/my/favorite/repository/
+gource ./
+    </pre>
+    <p>
+      The above example will display the gource animation in an interactive
+      window (which allows you to move the camera, inspect user and file
+      details, etc.)  To save the animation as a movie, use the <b>-o</b>
+      option to generate a PPM stream and pipe it through Ffmpeg.
+      Here's how we generated our animation:
+    </p>
+    <pre># Create a temporary repository merging the comics with the website
+cd ~/
+mkdir temp
+cd temp
+git clone ~/ElectricPuppetTheatre/
+git remote add website ~/eptcomic.com/
+git pull website master
+# Generate the animation
+gource  -i 0 -s .01 --hide usernames,date --default-user-image \
+htdocs/css/hand1.png --key -o - ./ | ffmpeg -y -r 60 -f image2pipe \
+-vcodec ppm -i - -vcodec libvpx -b 10000K gource.webm
+# And mux in an appropriately sized ditty courtesy of Janice, Pria, and Sara
+#  (the crunchy metal tone is a Mitchell acoustic guitar with a new set of
+#   Dunlop strings filtered through the "Tight Rock" preset in Rakarrack)
+ffmpeg -i gource.webm -vcodec copy -i MetalDitty.oga gource2.webm
+    </pre>
+    For more details on making this sort of video, see the
+    <a href="http://code.google.com/p/gource/wiki/Videos">Gource wiki</a>.
+    <hr>
+    <p>
+      Questions, comments, corrections?  Please send any and all feedback
+      to markv [at] eptcomic.com.
+    </p>
+    </div>
+  
+
+<iframe frameborder="0" scrolling="no" style="border: 0px; display: none; background-color: transparent;"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" style="display: none;"></div></body></html>

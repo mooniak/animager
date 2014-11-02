@@ -1,0 +1,331 @@
+a img {
+    border: none;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #8855aa;
+    height: 100%;
+}
+
+a {
+    font-weight: bold;
+}
+
+a:visited{
+    color: #000000;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+img.comic {
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.double {
+    text-align: center;
+    height: 95%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+img.double {
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    /* Note: the resampling on resized images in QtWebKit sucks
+       (whereas it looks great in modern Gecko or WebKitGtk)
+       -- if double page mode looks ugly, consider switching to
+       a recent build of Firefox or Midori, or use single page
+       mode.)
+       For the same reason, Internet Explorer users should upgrade
+       to IE8 or use single page mode.
+    */
+    height: 95%;
+}
+
+div.transcript{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40em;
+}
+
+div.altTranscript{
+    display: none;
+}
+
+p.links {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #aaff99;
+    max-width: 40em;
+    text-align: center;
+}
+
+div.news {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #aaff99;
+    max-width: 40em;
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+div.news h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 125%;
+}
+
+div.article {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #aaff99;
+    max-width: 40em;
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+div.article h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 125%;
+}
+
+div.article pre {
+    background-color: #99aaff;
+}
+
+div.article img {
+    float: right;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+div.article video {
+    float: right;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+div.article ul
+{
+    margin-left: 30px;
+    list-style-image: url(hand3.png);
+}
+
+div.article ul ul
+{
+    list-style-image: url(hand2.png);
+}
+
+div.article ul ol
+{
+    list-style-image: none;
+}
+
+p.merch {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #aaff99;
+    max-width: 40em;
+    padding: .5em;
+    text-align: left;
+}
+
+div.merch {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    max-width: 60em;
+    background-color: #99aaff;
+}
+
+div.merch img {
+    float: left;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+div.merch p {
+    max-width: 40em;
+}
+
+div.welcome {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    max-width: 60em;
+    background-color: #99aaff;
+}
+
+div.welcome img {
+    float: left;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+div.welcome h2 {
+    text-align: center;
+}
+
+div.welcome p {
+    padding-right: 1em;
+}
+
+h1.merch{
+    clear: both;
+    text-align: center;
+}
+
+h1.credits{
+    text-align: center;
+}
+
+div.credits {
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.puppet {
+    max-width: 10em;
+    float: left;
+    padding: 1em;
+    margin: 1em;
+    background-color: #99aaff;
+}
+
+div.puppet img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.puppet p {
+    text-align: center;
+}
+
+p.creditfooter {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #aaff99;
+    max-width: 30em;
+    text-align: center;
+}
+
+
+div.navbar
+{
+    font-family: sans-serif;
+}
+
+div.navbar#linkbar
+{
+    text-align: center;
+    background-color: #99aaff;
+}
+
+div.navbar ul
+{
+    list-style-type: none;
+    display: block;
+    margin-top: 0px;
+}
+
+div.navbar li
+{
+    margin-right: 1em;
+    font-weight: bold;
+    display: inline; 
+    white-space: nowrap;
+    background-color: #99aaff;
+}
+
+div.linklist
+{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60em;
+}
+
+div.linklist ul
+{
+    margin-left: 30px;
+    list-style-image: url(hand1.png);
+    font-weight: bold;
+    background-color: #aaff99;
+}
+
+div.linklist ul ul
+{
+    list-style-image: url(hand2.png);
+    font-weight: normal;
+}
+
+div.linklist ul ul ul
+{
+    list-style-image: url(hand3.png);
+    font-style: italic;
+}
+
+dl
+{
+    background-color: #99aaff;
+    max-width: 40em;
+    font-style: normal;
+}
+
+dt
+{
+    border-top: 5px solid #aaff99;
+}
+
+dl.credits
+{
+    background-color: #8855aa;
+    max-width: 20em;
+    font-style: normal;
+}
+
+dl.credits dt
+{
+    display: inline;
+    white-space: nowrap;
+}
+
+dl.credits dd
+{
+    display: inline;
+}
+
+p.license {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #aaff99;
+    max-width: 40em;
+    padding: .5em;
+    text-align: center;
+}

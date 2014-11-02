@@ -9,8 +9,8 @@ A dark theme for [FontForge](http://fontforge.org)
 
 Here's how we made the animation, in case you'd like to play alongat home:
 
+Install
 
-       Install
 - [Inkscape](http://inkscape.org)
 - [ImageMagick](http://www.imagemagick.org/script/index.ph)      
 - [Git](http://git-scm.com/)
@@ -18,13 +18,16 @@ Here's how we made the animation, in case you'd like to play alongat home:
 - [Ffmpeg](http://ffmpeg.org/)
 - [Ffmpeg2theora](http://v2v.cc/~j/ffmpeg2theora/)  
 
- <a href="http://www.ubuntu.com/">Ubuntu</a> <a href="http://www.kernel.org/">Linux</a>, you can do this via:
+<a href="http://www.ubuntu.com/">Ubuntu</a> <a href="http://www.kernel.org/">Linux</a>, you can do this via:
 
+```
 apt-get install inkscape imagemagick git-core python ffmpeg ffmpeg2theora
 
-          If you want to include a soundtrack,you'll also want
-          <a href="http://www.xiph.org/oggz/">oggz</a> and
-          <a href="http://www.xiph.org/downloads/">vorbis-tools</a>:
+```
+ If you want to include a soundtrack,you'll also want
+ 
+- <a href="http://www.xiph.org/oggz/">oggz</a> and
+- <a href="http://www.xiph.org/downloads/">vorbis-tools</a>:
 
 
 ```
@@ -38,7 +41,9 @@ Make a new directory for your comic and initialize a git repository
 
 ` cd ~/ElectricPuppetTheatre`
 `git init`
-         (All of the remaining commands will be run from this directory)
+
+(All of the remaining commands will be run from this directory)
+
   Use Inkscape to generate a template for your comic pages, or
         <a href="http://eptcomic.com/images/Template.svg">download ours</a>.  Save it as
          ~/ElectricPuppetTheatre/Template.svg .  If you create your

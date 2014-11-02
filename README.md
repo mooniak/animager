@@ -1,15 +1,8 @@
-# Dark Theme For FontForge
-
-A dark theme for [FontForge](http://fontforge.org)
-
-
 # Animating a SVG in a Git Repository
 
 
 
-Here's how we made the animation, in case you'd like to play alongat home:
-
-Install
+##Install
 
 - [Inkscape](http://inkscape.org)
 - [ImageMagick](http://www.imagemagick.org/script/index.ph)      
@@ -34,6 +27,7 @@ apt-get install inkscape imagemagick git-core python ffmpeg ffmpeg2theora
  apt-get install oggz-tools vorbis-tools
 ```
 
+##How To
 
 Make a new directory for your comic and initialize a git repository
 
@@ -44,98 +38,105 @@ Make a new directory for your comic and initialize a git repository
 
 (All of the remaining commands will be run from this directory)
 
-  Use Inkscape to generate a template for your comic pages, or
-        <a href="http://eptcomic.com/images/Template.svg">download ours</a>.  Save it as
-         ~/ElectricPuppetTheatre/Template.svg .  If you create your
-        own template, make the width:height ratio 2:3 ( e.g.  1200:1800).
-        Add the template to your git repository:
-         git add Template.svg
+- Use Inkscape to generate a template for your pages, or use the template included.
+- Make the width:height ratio 2:3 ( e.g.  1200:1800)
+- Save it as `~/ElectricPuppetTheatre/Template.svg`
+- Add the template to your git repository:
+```
+git add Template.svg
+
 git commit Template.svg -m "Template for new pages"
-        Make a subdirectory for the first issue and initialize the
-        pages from the template:
-         mkdir 001
+
+```
+Make a subdirectory for the first issue and initialize the pages from the template:
+
+```
+mkdir 001
 for i in {01..24}; do
   cp Template.svg 001/"Page-${i}.svg";
 done
 
-        Draw each page in Inkscape.  Pause periodically to commit your
-        work to the git repository.  The first time you commit a page,
-        you will need to add it to the repository:
-         git add 001/Page-01.svg
+```
+
+Draw each page in Inkscape.  Pause periodically to commit your work to the git repository.  The first time you commit a page, you will need to add it to the repository:
+
+```
+git add 001/Page-01.svg
+
 git commit 001/Page-01.svg -m "Started page 1 of issue 1"
-        For subsequent commits, you can skip the add step:
-         git commit 001/Page-01.svg -m "Inked first panel"
-        Now we're ready to animate the repository!  First, make
-        a working directory for the rendered images:
-         mkdir IssueMovie
-        Use our <a href="http://eptcomic.com/code/issuemovie.py">issuemovie.py</a>
-        script to render a montage of the pages for each commit in
-        the archive:
-         chmod "a+x" issuemovie.py
+
+```
+For subsequent commits, you can skip the add step:
+
+```
+git commit 001/Page-01.svg -m "Inked first panel"
+```
+Now we're ready to animate the repository!  First, make a working directory for the rendered images:
+
+```
+mkdir IssueMovie
+
+```
+Use our `issuemovie.py` script to render a montage of the pages for each commit in the archive:
+
+```
+chmod "a+x" issuemovie.py
+
 ./issuemovie.py
-        Here's what the script is doing behind the scenes:
 
-           Find all of the commits that touch this issue with
-             git log .
-            Find the pages touched by a particular commit with
-             git show .
-            Extract each page version from the repository with
-             git cat-file blob .
-            Render each page to a 160x240 pixel PNG with inkscape.
-            Render each set of pages as an 8x3 grid with the
-             montage  tool from ImageMagick.
+```
+Here's what the script is doing behind the scenes:
 
-         (This step took about 40 minutes to render 656 commits
-          on 32-bit Ubuntu 10.04 on a 2GHz T7300).
-        Move to the working directory for the final rendering steps:
-         cd IssueMovie
-        Use ImageMagick to convert the PNG (lossless) frames to
-        JPEGs, setting quality to 100% to avoid lossy compression:
-         for i in frame*.png ; do
-  convert -quality 100 $i `basename $i png`jpg;
+- Find all of the commits that touch this issue with `git log .`
+- Find the pages touched by a particular commit with `git show .`
+- Extract each page version from the repository with `git cat-file blob .`
+- Render each page to a 160x240 pixel PNG with Inkscape.
+- Render each set of pages as an 8x3 grid with the montage tool from ImageMagick.
+
+(This step took about 40 minutes to render 656 commits on 32-bit Ubuntu 10.04 on a 2GHz T7300).
+
+Move to the working directory for the final rendering steps:
+```cd IssueMovie```
+
+Use ImageMagick to convert the PNG (lossless) frames to JPEGs, setting quality to 100% to avoid lossy compression:
+```
+for i in frame*.png ; do
+convert -quality 100 $i `basename $i png`jpg;
 done
-         Use ffmpeg2theora to combine the frames into an ogg video:
-          ffmpeg2theora -F 6 -v 10 -i frame%04d.jpg -o MOS.ogv
-         -v 10  gives the highest image quality, which is necessary
-        to keep the pencils from blurring and to avoid artifacts on flat
-        images, and  -F  sets the frame rate.  
+```
+Use ffmpeg2theora to combine the frames into an ogg video:
 
-        For  Round Midnight , we had 656 frames, for a length of
-        1 minute 49 seconds at 6 frames per second.  Combining this
-        with a slightly longer audio track gives the nice effect of
-        holding for a few seconds on the final image; we used a 2 minute
-        14 second mix of Sara and Louis jamming on the Electric Puppet
-        Waltz, converting it to ogg audio with vorbis-tools:
-          oggenc -n MOI.oga GuitarWaltz.wav
-        and then combining (muxing) the audio and video streams with
-        oggz-tools:
-         oggz merge -o ept1.ogv MOS.ogv MOI.oga
+```
+ffmpeg2theora -F 6 -v 10 -i frame%04d.jpg -o MOS.ogv
+```
+-v 10  gives the highest image quality, which is necessaryto keep the pencils from blurring and to avoid artifacts on flat images, and  -F  sets the frame rate.  
 
+Converting it to ogg audio with vorbis-tools:
+```
+oggenc -n MOI.oga GuitarWaltz.wav
+```
+And then combining (muxing) the audio and video streams with oggz-tools:
 
-     Bonus: Animating for YouTube
-     The instructions above work for making an animation in the open,
-      patent-safe OGG format.  Unfortunately, there are many places that
-      OGG won't play.  Mark Pilgrim's Dive Into HTML5 <a title="410" href="http://eptcomic.com/images/410.png">had</a> an excellent
-      discussion of <a title="cached copy from the internet archive" href="http://web.archive.org/web/20110726002026/http://diveintohtml5.org/video.html">the hairy details of distributing video on the web</a>, the short version of which is:
-        There is no single combination of containers and codecs that works in all HTML5 browsers.</blockquote>
-      More importantly, it is impossible to support all platforms without
-      using patent-encumbered formats.  Rather than deal with this directly,
-      we will punt the problem to Google by uploading our video to YouTube
-      which supports uploads in the patent-safe WebM format.
+```
+oggz merge -o ept1.ogv MOS.ogv MOI.oga
+```
 
 
-      Here are the things we need to know about YouTube:
+##Bonus: Animating for YouTube
+
+The instructions above work for making an animation in the open, patent-safe OGG format.  Unfortunately, there are many places thatOGG won't play.  Mark Pilgrim's Dive Into HTML5 <a title="410" href="http://eptcomic.com/images/410.png">had</a> an excellentdiscussion of <a title="cached copy from the internet archive" href="http://web.archive.org/web/20110726002026/http://diveintohtml5.org/video.html">the hairy details of distributing video on the web</a>, the short version of which is:
+- There is no single combination of containers and codecs that works in all HTML5 browsers.</blockquote>
+- More importantly, it is impossible to support all platforms without patent-encumbered formats.  Rather than deal with this directly,we will punt the problem to Google by uploading our video to YouTube which supports uploads in the patent-safe WebM format.
 
 
-       YouTube supports OGG audio (vorbis) but not OGG video
-        (theora).  It will let you upload an OGG audio+video file,
-        but the result will be an audio stream on top of a green screen
-        (so don't do this).
-        The audio and video tracks need to be the same length.  If they
-        aren't, YouTube will truncate the video to the shortest track.
+Here are the things we need to know about YouTube:
 
 
-      Got that?  Okay, here we go:
+- YouTube supports OGG audio (vorbis) but not OGG video(theora).  It will let you upload an OGG audio+video file, but the result will be an audio stream on top of a green screen (so don't do this).
+- The audio and video tracks need to be the same length.  If they aren't, YouTube will truncate the video to the shortest track.
+
+
+Got that?  Okay, here we go:
 
 
        Prepare your frames by following steps 1-10 of the OGG instructions

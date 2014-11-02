@@ -3,7 +3,7 @@
 A dark theme for [FontForge](http://fontforge.org)
 
 
-### Animating a SVG in a Git Repository
+# Animating a SVG in a Git Repository
 
 
 
@@ -11,13 +11,14 @@ Here's how we made the animation, in case you'd like to play alongat home:
 
 
        Install
-          <a href="http://inkscape.org/">Inkscape</a>,
-          <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a>,
-          <a href="http://git-scm.com/">Git</a>,
-          <a href="http://www.python.org/">Python</a>,
-          <a href="http://ffmpeg.org/">Ffmpeg</a>, and
-          <a href="http://v2v.cc/~j/ffmpeg2theora/">Ffmpeg2theora</a>.
-          On <a href="http://www.ubuntu.com/">Ubuntu</a> <a href="http://www.kernel.org/">Linux</a>, you can do this via:
+- [Inkscape](http://inkscape.org)
+- [ImageMagick](http://www.imagemagick.org/script/index.ph)      
+- [Git](http://git-scm.com/)
+- [Python](http://www.python.org/)
+- [Ffmpeg](http://ffmpeg.org/)
+- [Ffmpeg2theora](http://v2v.cc/~j/ffmpeg2theora/)  
+
+ <a href="http://www.ubuntu.com/">Ubuntu</a> <a href="http://www.kernel.org/">Linux</a>, you can do this via:
 
 apt-get install inkscape imagemagick git-core python ffmpeg ffmpeg2theora
 

@@ -7,6 +7,7 @@
 - [Inkscape](http://inkscape.org)
 - [ImageMagick](http://www.imagemagick.org/script/index.ph)      
 - [Git](http://git-scm.com/)
+- [SparkleShare](http://sparkleshare.org/)
 - [Python](http://www.python.org/)
 - [Ffmpeg](http://ffmpeg.org/)
 - [Ffmpeg2theora](http://v2v.cc/~j/ffmpeg2theora/)  
@@ -29,55 +30,30 @@ apt-get install inkscape imagemagick git-core python ffmpeg ffmpeg2theora
 
 ##How To
 
-Make a new directory for your comic and initialize a git repository
+- Set up Sparckle Share.
 
-`mkdir ~/ElectricPuppetTheatre`
-
-` cd ~/ElectricPuppetTheatre`
-`git init`
-
-(All of the remaining commands will be run from this directory)
+- Set Up a Git Repo in Sparckle Share. Lets call it `my_graphic`. Now you have a folder named  `my_graphic` in Sparckle Share folder.
 
 - Use Inkscape to generate a template for your pages, or use the template included.
+
 - Make the width:height ratio 2:3 ( e.g.  1200:1800)
-- Save it as `~/ElectricPuppetTheatre/Template.svg`
-- Add the template to your git repository:
-```
-git add Template.svg
 
-git commit Template.svg -m "Template for new pages"
+- Save it in `my_graphic` folder inside Sparckle Share folder.  
+```
+~/SparkleShare/mygraphic/animate_me.svg
+```
+
+- Now Start drawing, Save the file time to time. When you save the file it will automatically commit to the git repository. 
+
+
+Now we're ready to animate the repository!  First, make a working directory for the rendered images inside the git reposiotry.  Lets call it `mkdir IssueMovie`
 
 ```
-Make a subdirectory for the first issue and initialize the pages from the template:
-
-```
-mkdir 001
-for i in {01..24}; do
-  cp Template.svg 001/"Page-${i}.svg";
-done
+~/SparkleShare/mygraphic/IssueMovie
 
 ```
 
-Draw each page in Inkscape.  Pause periodically to commit your work to the git repository.  The first time you commit a page, you will need to add it to the repository:
-
-```
-git add 001/Page-01.svg
-
-git commit 001/Page-01.svg -m "Started page 1 of issue 1"
-
-```
-For subsequent commits, you can skip the add step:
-
-```
-git commit 001/Page-01.svg -m "Inked first panel"
-```
-Now we're ready to animate the repository!  First, make a working directory for the rendered images:
-
-```
-mkdir IssueMovie
-
-```
-Use our `issuemovie.py` script to render a montage of the pages for each commit in the archive:
+Now we will run `issuemovie.py` script to render a montage of the pages for each commit in the archive:
 
 ```
 chmod "a+x" issuemovie.py

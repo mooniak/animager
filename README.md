@@ -1,7 +1,11 @@
 # Animating a SVG process using a Git commits
 
 So the idea is to make videos of proccess in designing graphics in Inkscape easily using git commits. 
-Im just a dumb designer and dont know how to do this. Idea came from [here](https://www.youtube.com/watch?v=WY9A2mug4dw).
+Im just a dumb designer and dont know how to do this. :)
+
+Idea came from [here](https://www.youtube.com/watch?v=WY9A2mug4dw).
+
+##Process
 
 The proposed process goes like this.
 
@@ -20,8 +24,14 @@ The proposed process goes like this.
      - Use ffmpeg2theora to combine the frames into an ogg video.
  - Use some other tool to convert video into any other format. 
 
+##Deliverables
 
-##Neede stuff / References
+- A Python script
+- Dependency installer script
+- SVG Template file
+- A GitHub repo with all these files
+
+##Needed stuff / References
 
 - [Inkscape](http://inkscape.org)
 - [ImageMagick](http://www.imagemagick.org/script/index.ph)      

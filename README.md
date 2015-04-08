@@ -29,6 +29,7 @@ The proposed process goes like this.
 - Installer script (http://voidandany.free.fr/index.php/installer-de-facon-automatique-une-liste-de-package-et-les-depots-associes/ )
 - Script
 - Template files to start
+- Documentation
 - A GitHub repo with all these files
 
 ##Extras

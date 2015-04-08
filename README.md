@@ -26,10 +26,16 @@ The proposed process goes like this.
 
 ##Deliverables
 
-- A Python script
-- Dependency installer script
-- SVG Template file
+- Installer script
+- Script
+- Template files to start
 - A GitHub repo with all these files
+
+##Extras
+- Support GIMP and Krita file formats. (.xfc / )
+- Support on Windows
+- Supprt on Mac
+- GUI (Maybe Someday)
 
 ##Needed stuff / References
 

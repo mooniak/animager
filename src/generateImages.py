@@ -2,27 +2,44 @@
 
 import os
 
-def generateTemporaryImage( inputName, inputExtension, options,
-                  outputName, outputExtension, ouputDirectory ):
-    os.system( 'convert ' + inputName + inputExtension + ' ' + options
-               + ' ' + outputDirectory + outputName + outputExtension )
 
-def generateGitCommitArray():
+def genTempImage( inputName, inputExt, options,
+                  outputName, outputExt, outputDir ):
+    
+    os.system( 'convert ' + inputName
+               + inputExt + ' '
+               + options
+               + ' ' + outputDir
+               + outputName
+               + outputExt )
+
+
+def gitCommitArray():
+    
     os.system( 'git log --pretty=%h > log' )
     commits = open('log').read().splitlines()
     return commits
 
+
 def gitCheckoutOld( commitHash ):
+    
     os.system( 'git checkout ' + commitHash )
 
-def gitGenerateTemporaryImages():
+
+def gitGenTempImages():
+    
     os.system( 'mkdir temp' )
-    commits = generateGitCommitArray()
+    commits = gitCommitArray()
     commits.reverse()
 
     count = 1
     for commitHash in commits:
         gitCheckoutOld( commitHash )
-        generateTemporaryImage( 'test', '.svg', '', 'temp/', str(count),
-                                '.png'  )
+        
+        genTempImage( inputName = 'drawing',
+                                inputExt = '.svg',
+                                options = '',
+                                outputDir = 'temp/',
+                                outputName = str(count),
+                                outputExt = '.png'  )
         count += 1

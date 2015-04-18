@@ -7,26 +7,27 @@ import glob
 
 def morphImages( value, inputExt, outputExt ):
 
-    os.system( 'mkdir -p morph-cache' )
-    os.system( 'convert ' + '*' + inputExt
+    print('\nmorphing images...\n')
+    os.system( 'mkdir -p temp\/morph-cache' )
+    os.system( 'convert ' + 'temp\/*' + inputExt
                + ' -delay ' + value
-               + ' -morph 10 '
-               + 'morph-cache\/\%'
+               + ' -morph 20 '
+               + 'temp\/morph-cache\/\%'
                + '05d'
                + outputExt )
 
 
 def genVideo():
 
-    morphImages( value = '1000',
+    morphImages( value = '10',
                  inputExt = '.png',
                  outputExt  = '.jpg' )
 
 
     ##os.system('ls morph-cache/')
     os.system( 'ffmpeg '
-               +'-framerate 1\/\5 '
-               + '-i morph-cache\/\%05d.jpg '
+               +'-framerate 20 '
+               + '-i temp\/morph-cache\/\%05d.jpg '
                + '-c:v h264 '
                + '-r 30 '
                + '-pix_fmt yuv420p '

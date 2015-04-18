@@ -45,3 +45,5 @@ def gitGenTempImages():
                                 outputName = str(count),
                                 outputExt = '.png'  )
         count += 1
+
+    os.system( 'git checkout master' )

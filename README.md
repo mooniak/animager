@@ -12,10 +12,11 @@ File Fomrmats
 ###SetUp
 
 PHASE I
-Set Up your design software. (Inkscape, GIMP, Krita)
-Set Up a Git Repo
-Install Sparkleshare
-Do your Design, Save in stages
+
+  - Set Up your design software. (Inkscape, GIMP, Krita)
+  - Set Up a Git Repo
+  - Install Sparkleshare
+  - Do your Design, Save in stages
 
 ###How To
 

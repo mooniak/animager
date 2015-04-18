@@ -1,4 +1,6 @@
 ### generate temporary images using GIT commits
+### dependencies : imagemagick
+
 
 import os
 

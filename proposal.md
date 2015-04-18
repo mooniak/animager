@@ -31,13 +31,13 @@ The proposed process goes like this.
 
 - Service Presets
      By Service presets (This will cancel out video size and qulity )
-     - Vimeo[spec](https://vimeo.com/help/compression)
+     - Vimeo [spec](https://vimeo.com/help/compression)
                - Size
                - HD / SD
-     - YouTube [spec](https://support.google.com/youtube/answer/1722171?hl=en)
+     - YouTube  [spec](https://support.google.com/youtube/answer/1722171?hl=en)
                - Size
                - HD / SD
-     - FaceBook [spec](https://www.facebook.com/help/124738474272230)
+     - Facebook  [spec](https://www.facebook.com/help/124738474272230)
                - Size
                - HD / SD
 

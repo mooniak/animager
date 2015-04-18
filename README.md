@@ -18,6 +18,9 @@ File Fomrmats
 
 ###How To Generate Video
 
+- Install requierd libraries 
+-
+
 Once you are done and ready to generate a video..
 
   -  

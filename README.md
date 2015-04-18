@@ -21,9 +21,9 @@ Do your Design, Save in stages
 
 Once you are done and ready to generate a video..
 
-- 
-- 
-- 
+  -  
+  - 
+  - 
 
 
 

@@ -1,3 +1,7 @@
 *.directory
 *__pycache__
+<<<<<<< HEAD
 *log
+=======
+*log
+>>>>>>> a44babf39499176c985f9e8e26a3fded14bc6f53

@@ -16,10 +16,18 @@ File Fomrmats
   - Install Sparkleshare
   - Do your Design, Save in stages
 
+
+The video generation process requiers two extra software pakages or libraries. So we have to install them.
+
+  - ffmpeg
+  - imagemagick
+
+
 ###How To Generate Video
 
-- Install requierd libraries 
--
+  - Install requierd libraries
+  -
+
 
 Once you are done and ready to generate a video..
 

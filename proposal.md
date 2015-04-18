@@ -24,6 +24,41 @@ The proposed process goes like this.
      - Use ffmpeg2theora to combine the frames into an ogg video.
  - Use some other tool to convert video into any other format. 
 
+
+##Options 
+
+- Video Name
+
+- Service Presets
+     By Service presets (This will cancel out video size and qulity )
+     - Vimeo[spec](https://vimeo.com/help/compression)
+               - Size
+               - HD / SD
+     - YouTube [spec](https://support.google.com/youtube/answer/1722171?hl=en)
+               - Size
+               - HD / SD
+     - FaceBook [spec](https://www.facebook.com/help/124738474272230)
+               - Size
+               - HD / SD
+
+- Custom Settings
+     - Other FileFormat selections
+          - All supported formats from ffmepg
+     - Video Size / Qulity settings
+          - 1080p
+          - 720p
+          - 360p
+     - Save custom setting (optional)
+     - Video Qulity (1-10 scale)
+
+- Add a title slide
+     - Add a 10 sec title slid at the begining of the video
+     - Text Input
+
+- Append Audio File to video (Not that important) -  
+     - Colud be done using [Ffmpeg2theora](http://v2v.cc/~j/ffmpeg2theora/) 
+     - 
+
 ##Deliverables
 
 - Installer script (http://voidandany.free.fr/index.php/installer-de-facon-automatique-une-liste-de-package-et-les-depots-associes/ )

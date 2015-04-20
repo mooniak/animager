@@ -55,6 +55,8 @@ The proposed process goes like this.
      - Add a 10 sec title slid at the begining of the video
      - Text Input
 
+- Freez last frame
+
 - Append Audio File to video (Not that important) -  
      - Colud be done using [Ffmpeg2theora](http://v2v.cc/~j/ffmpeg2theora/) 
      - 

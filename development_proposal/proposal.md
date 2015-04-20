@@ -75,6 +75,17 @@ The proposed process goes like this.
 - Supprt on Mac
 - GUI (Maybe Someday)
 
+
+##GUI
+
+I think wizard like gui would make sense. 
+
+- Select different options in steps and generate video. 
+- Give option to save the seetings as a template.
+- So It is like a one time set up wizard.
+- Next time they can just select a saved tempalte and generate video.
+
+
 ##Needed stuff / References
 
 - [Inkscape](http://inkscape.org)

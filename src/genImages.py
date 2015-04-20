@@ -28,9 +28,9 @@ def gitCheckoutOld( commitHash ):
     os.system( 'git checkout ' + commitHash )
 
 
-def gitGenTempImages():
+def gitGenTempImages( outputDir ):
     
-    os.system( 'mkdir temp' )
+    os.system( 'mkdir' + outputDir )
     commits = gitCommitArray()
     commits.reverse()
 
@@ -41,9 +41,10 @@ def gitGenTempImages():
         genTempImage( inputName = 'drawing',
                                 inputExt = '.svg',
                                 options = '',
-                                outputDir = 'temp/',
+                                outputDir = outputDir,
                                 outputName = str(count),
                                 outputExt = '.png'  )
         count += 1
 
+    print ("\nRolling changes back to master branch...\n")
     os.system( 'git checkout master' )

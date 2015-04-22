@@ -5,21 +5,21 @@ import os
 import glob
 
 
-def morphImages( inDir, outDir, value, inputExt, outputExt ):
+def morphImages( inDir, outDir, value, inputExt ):
 
     print('\nmorphing images...\n')
     os.system( 'mkdir -p ' + outDir +'morph-cache' )
-    os.system( 'convert ' + inDir +
-               + '\%05d' + inputExt
+    os.system( 'convert ' + inDir
+               + '*' + inputExt
                + ' -delay ' + value
                + ' -morph 20 '
                + outDir + 'morph-cache/'
-               + '%05d' + outputExt )
+               + '\%05d.jpg')
 
 
 def genVideo( inputDir, outputDir ):
 
-    morphImages( inputDir, outputDir, '10', '.png', '.jpg' )
+    morphImages( inputDir, outputDir, '10', '.png' )
 
 
     ##os.system('ls morph-cache/')
@@ -29,4 +29,4 @@ def genVideo( inputDir, outputDir ):
                + '-c:v h264 '
                + '-r 30 '
                + '-pix_fmt yuv420p '
-               + outputDir +' out.mp4' )
+               + outputDir +'out.mp4' )

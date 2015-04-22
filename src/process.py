@@ -11,9 +11,9 @@ def main():
 
     userName = getpass.getuser()
     
-    gitGenTempImages( '/home/' + userName + '/animager/' )
-    genVideo( '/home/' + userName + '/animager/',
-              '/home/' + userName + '/animager/' )
+    gitGenTempImages( '/home/' + userName + '/animage/' )
+    genVideo( '/home/' + userName + '/animage/',
+              '/home/' + userName + '/animage/' )
 
 
 if __name__ == "__main__":

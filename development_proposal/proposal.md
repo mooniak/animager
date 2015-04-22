@@ -55,6 +55,8 @@ The proposed process goes like this.
      - Add a 10 sec title slid at the begining of the video
      - Text Input
 
+- Freez last frame
+
 - Append Audio File to video (Not that important) -  
      - Colud be done using [Ffmpeg2theora](http://v2v.cc/~j/ffmpeg2theora/) 
      - 
@@ -72,6 +74,17 @@ The proposed process goes like this.
 - Support on Windows
 - Supprt on Mac
 - GUI (Maybe Someday)
+
+
+##GUI
+
+I think wizard like gui would make sense. 
+
+- Select different options in steps and generate video. 
+- Give option to save the seetings as a template.
+- So It is like a one time set up wizard.
+- Next time they can just select a saved tempalte and generate video.
+
 
 ##Needed stuff / References
 

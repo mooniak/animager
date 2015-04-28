@@ -1,6 +1,6 @@
 ### main python script
 
-import sys, getpass
+import os, sys, getpass
 from genImages import gitGenTempImages
 from genVideo import genVideo
 from profiles import readProfile
@@ -29,7 +29,7 @@ def main( argv ):
             sys.exit( 0 )
 
         if '-o' in argv:
-            vOut = argv[ argv.index( '-o' ) + 1 ]
+            vOut = argv[ argv.index( '-o' ) + 1 ] + '/'
 
         for x in options:
             if '-f' in x:
@@ -52,11 +52,12 @@ def main( argv ):
         getProfList( userName )
         sys.exit( 0 )
         
-    print(options)
-    print(height)
-    print(width)
-    print(frameRate)
-    ###sys.exit(0)
+    #print(options)
+    #print(height)
+    #print(width)
+    #print(frameRate)
+    #print(vOut)
+    #sys.exit(0)
     
     gitGenTempImages( inputImage, '/home/' + userName + '/animager/' )
     
@@ -64,7 +65,19 @@ def main( argv ):
               frameRate, height, width,
               vOut )
 
-    
+    keepTemp = input( '\nKeep temporary image files ? (y/n) ' )
+
+    if keepTemp is 'y':
+        tempFold = input( 'Enter directory name : ' )
+        os.system( 'mkdir -p /home/' + userName
+                   + '/animager/' + tempFold )
+        os.system( 'mv /home/' + userName + '/animager/*.png /home/'
+                   + userName + '/animager/' + tempFold )
+        os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
+
+    else:
+        os.system( 'rm -r /home/' + userName + '/animager/*.png' )
+        os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
 
 
 if __name__ == "__main__":

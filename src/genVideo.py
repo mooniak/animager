@@ -1,18 +1,20 @@
 ### generate a video file using generated temporary image files
 ### dependencies : ffmpeg, imagemagick
 
-import os
+import os, getpass
 
 
 def morphImages( inDir, outDir, value, inputExt ):
 
     print('\nmorphing images...\n')
-    os.system( 'mkdir -p ' + outDir +'morph-cache' )
+    userName = getpass.getuser()
+    os.system( 'mkdir -p ' + '/home/' + userName
+               + '/animager/morph-cache' )
     os.system( 'convert ' + inDir
                + '*' + inputExt
                + ' -delay ' + value
                + ' -morph 20 '
-               + outDir + 'morph-cache/'
+               + '/home/' + userName + '/animager/morph-cache/'
                + '\%05d.jpg')
 
 

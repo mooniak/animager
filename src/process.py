@@ -51,6 +51,11 @@ def main( argv ):
     elif '-plist' in argv:
         getProfList( userName )
         sys.exit( 0 )
+
+    else:
+        print( 'Invalid input.' )
+        print( 'usage: animager -p [profile name] -i [input file] -o [output folder]' )
+        sys.exit( 0 )
         
     #print(options)
     #print(height)

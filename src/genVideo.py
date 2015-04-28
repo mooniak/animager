@@ -13,7 +13,7 @@ def morphImages( inDir, outDir, value, inputExt ):
     os.system( 'convert ' + inDir
                + '*' + inputExt
                + ' -delay ' + value
-               + ' -morph 20 '
+               + ' -morph 10 '
                + '/home/' + userName + '/animager/morph-cache/'
                + '\%05d.jpg')
 

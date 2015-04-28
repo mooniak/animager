@@ -1,18 +1,20 @@
 ### generate a video file using generated temporary image files
 ### dependencies : ffmpeg, imagemagick
 
-import os
+import os, getpass
 
 
 def morphImages( inDir, outDir, value, inputExt ):
 
     print('\nmorphing images...\n')
-    os.system( 'mkdir -p ' + outDir +'morph-cache' )
+    userName = getpass.getuser()
+    os.system( 'mkdir -p ' + '/home/' + userName
+               + '/animager/morph-cache' )
     os.system( 'convert ' + inDir
                + '*' + inputExt
                + ' -delay ' + value
                + ' -morph 20 '
-               + outDir + 'morph-cache/'
+               + '/home/' + userName + '/animager/morph-cache/'
                + '\%05d.jpg')
 
 
@@ -32,30 +34,29 @@ def genVideo( inputDir, frameRate, height , width , outputDir ):
     elif height is '' and width is not '':
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -height ' + height
                    + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
-                   + outputDir +'out.mp4' )
+                   + ' -vf scale=' + width + ':-1'
+                   + ' ' + outputDir +'out.mp4' )
 
     elif height is not '' and width is '':
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -width ' + width
                    + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
-                   + outputDir +'out.mp4' )
+                   + ' -vf scale=' + '-1:' + height
+                   + ' ' + outputDir +'out.mp4' )
 
     else:
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -height ' + height
-                   + ' -width ' + width
                    + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
-                   + outputDir +'out.mp4' )
+                   + ' -vf scale=' + width + ':' + height
+                   + ' ' + outputDir +'out.mp4' )

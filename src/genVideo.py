@@ -32,30 +32,29 @@ def genVideo( inputDir, frameRate, height , width , outputDir ):
     elif height is '' and width is not '':
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -height ' + height
                    + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
-                   + outputDir +'out.mp4' )
+                   + ' -vf scale=' + width + ':-1'
+                   + ' ' + outputDir +'out.mp4' )
 
     elif height is not '' and width is '':
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -width ' + width
                    + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
-                   + outputDir +'out.mp4' )
+                   + ' -vf scale=' + '-1:' + height
+                   + ' ' + outputDir +'out.mp4' )
 
     else:
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -height ' + height
-                   + ' -width ' + width
                    + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
-                   + outputDir +'out.mp4' )
+                   + ' -vf scale=' + width + ':' + height
+                   + ' ' + outputDir +'out.mp4' )

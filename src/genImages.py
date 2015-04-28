@@ -5,12 +5,11 @@
 import os
 
 
-def genTempImage( inputName, inputExt, options,
+def genTempImage( gitImage, options,
                   outputName, outputExt, outputDir ):
     
-    os.system( 'convert ' + inputName
-               + inputExt + ' '
-               + options
+    os.system( 'convert ' + gitImage
+               + ' ' + options
                + ' ' + outputDir
                + outputName
                + outputExt )
@@ -28,9 +27,9 @@ def gitCheckoutOld( commitHash ):
     os.system( 'git checkout ' + commitHash )
 
 
-def gitGenTempImages( outputDir ):
+def gitGenTempImages( image, outputDir ):
     
-    os.system( 'mkdir' + outputDir )
+    os.system( 'mkdir -p ' + outputDir )
     commits = gitCommitArray()
     commits.reverse()
 
@@ -38,12 +37,11 @@ def gitGenTempImages( outputDir ):
     for commitHash in commits:
         gitCheckoutOld( commitHash )
         
-        genTempImage( inputName = 'drawing',
-                                inputExt = '.svg',
-                                options = '',
-                                outputDir = outputDir,
-                                outputName = str(count),
-                                outputExt = '.png'  )
+        genTempImage( gitImage = image,
+                      options = '',
+                      outputDir = outputDir,
+                      outputName = str(count),
+                      outputExt = '.png'  )
         count += 1
 
     print ("\nRolling changes back to master branch...\n")

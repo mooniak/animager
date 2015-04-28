@@ -3,7 +3,6 @@
 
 import os
 import sys
-import glob
 import getpass
 
 
@@ -28,11 +27,10 @@ def readProfile( pName ):
 def writeProfile( arguments ):
 
     options = arguments
-    print(options)
     i = 2
 
     home = '/home/' + getpass.getuser() + '/animager/profiles/'
-    print(home)
+
     file = open( home + options[ i ] + '.prof', 'w+' )
 
     for option in options:
@@ -50,8 +48,6 @@ def writeProfile( arguments ):
 def getProfList( userName ):
 
     print( '\nAvailable profiles.\n' )
-    print(glob.glob( "/home" + userName + "/animager/profiles/*.prof" ))
-    for prof in glob.glob( "/home" + userName + "/animager/profiles/*.prof" ):
-        print( '* ' + prof )
-
-    print( '\n' )
+    os.system( 'ls /home/' + userName + '/animager/profiles/*.prof'
+               + ' | xargs -n 1 basename' )
+    print()

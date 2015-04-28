@@ -1,0 +1,5 @@
+ /opt/animager/process.py
+-pnew ntsc-dv
+-w 720
+-h 480
+-f 30

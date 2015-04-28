@@ -46,6 +46,8 @@ def main( argv ):
 
     elif '-pnew' in argv:
         writeProfile( argv )
+        print( 'Profile created successfully' )
+        print( 'enter \"animager -plist all\" to get the profile list' )
         sys.exit( 0 )
 
     elif '-plist' in argv:
@@ -55,6 +57,7 @@ def main( argv ):
     else:
         print( 'Invalid input.' )
         print( 'usage: animager -p [profile name] -i [input file] -o [output folder]' )
+        print( 'usage: animager -pnew [profile name] -h [height] -w [width] -f [frame rate]' )
         sys.exit( 0 )
         
     #print(options)
@@ -67,8 +70,7 @@ def main( argv ):
     gitGenTempImages( inputImage, '/home/' + userName + '/animager/' )
     
     genVideo( '/home/' + userName + '/animager/',
-              frameRate, height, width,
-              vOut )
+              frameRate, height, width, vOut )
 
     keepTemp = input( '\nKeep temporary image files ? (y/n) ' )
 

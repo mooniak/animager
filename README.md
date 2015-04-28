@@ -2,8 +2,7 @@
 
 Make videos of proccess in designing graphics in vector or raster editors ( Inkscape, GIMP ) easily.
 ```
-`animager -p hd-720p -i [path-to-your-image] -o [path-to-your-output-folder]
-
+animager -p hd-720p -i [path-to-your-image] -o [path-to-your-output-folder]
 ```
 
 ###Works with

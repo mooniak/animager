@@ -1,30 +1,29 @@
-# Animating a graphic design process with Git
+# Animating steps of a graphic design process using Git commits
 
-Make videos of proccess in designing graphics in vector or raster editors ( Inkscape, GIMP ) easily.
+Save and commit step by step, your graphic designing process and use Animager to build a video to see the progress.
+What Animager does is rolling the git commits and capture the image for each commit as a temporary image, collect all temporary images and build the video.
 
-###Works with
-
-Paltforms
-
-File Fomrmats
-
-###SetUp
-
-  - Set Up your design software. (Inkscape, GIMP, Krita)
-  - Set Up a Git Repo
-  - Do your Design, Save in stages
+###Supported image formats
+Animager uses imagemagick to convert the images. Supported image format list is here, http://www.imagemagick.org/script/formats.php
 
 
-The video generation process requiers two extra software pakages or libraries. So we have to install them.
-
+###Dependencies
   - ffmpeg
   - imagemagick
+  - python3
+  - C++ compiler - g++
 
 
-###How To Generate Video
+###Install
+sh install.sh
 
-  - Install requierd libraries
-  - 
+###How to use animager
+  - Get a list of profiles
+animager -plist all
+  - Create a new profile
+animager -pnew profileName -h height -w weight -f frameRate
+  - Animager your image
+animager -p profileName -i inputImage -o videoOutputLocation
 
 
 Once you are done and ready to generate a video..

@@ -1,33 +1,15 @@
 Animager
 =======
 
+##A tool to easily animate your graphic design or illustration project.
 
+Save and git commit step by step, your graphic design process and use Animager to build a video to show the progress.
+Animager users Git - a version control system to record and grab all the stages of your design project. Use [Sparkleshare](http://sparkleshare.org/) to easily commit file. What Animager does is rolling the git commits and capture the image for each commit as a temporary image, collect all temporary images and build a video.
 
-### create a video
-animager -p [profile name] -i [filepath/name] -o [output folder]
-{ ex :  animager -p hd-720p -i /home/lahiru/sparkleshare/test/drawing.svg -o /home/lahiru/desktop }
-if you didnt mention -o (output folder) here, video will be saved as ~/animager/out.mp4
-
-### to get a available profile list
-animager -plist all
-
-### to create a profile
-animager -pnew [pname] -h [height] -w [width] -f [frame rate]
-{ ex : animager -pnew test -h 240 -w 320 -f 30 }
-
-
-
-
-
-
-
-Make videos of proccess in designing graphics in vector or raster editors ( Inkscape, GIMP ) easily.
-
-Save and commit step by step, your graphic designing process and use Animager to build a video to see the progress.
-What Animager does is rolling the git commits and capture the image for each commit as a temporary image, collect all temporary images and build the video.
 
 ###Supported image formats
-Animager uses imagemagick to convert the images. Supported image format list is here, http://www.imagemagick.org/script/formats.php
+
+Animager uses imagemagick to convert the images. Supported image format list is [here.](http://www.imagemagick.org/script/formats.php) 
 
 
 ###Dependencies

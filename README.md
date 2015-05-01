@@ -7,10 +7,11 @@ Save and git commit step by step, your graphic design process and use Animager t
 Animager users Git - a version control system to record and grab all the stages of your design project. Use [Sparkleshare](http://sparkleshare.org/) to easily commit file. What Animager does is rolling the git commits and capture the image for each commit as a temporary image, collect all temporary images and build a video.
 
 
-###Supported image formats
+###Supported image formats and OS's
 
 Animager uses imagemagick to convert the images. Supported image format list is [here.](http://www.imagemagick.org/script/formats.php) 
 
+Tested on Linux only.
 
 ###Dependencies
   - ffmpeg
@@ -70,13 +71,13 @@ Included profiles : `hd-720p` `hd-1080p` `sd-360` `sd-480`
 Example: `animager -pnew test -h 240 -w 320 -f 30`
 
 
-
-
 ###ToDo
+- See [Issues](https://github.com/mooniak/animager/issues) for future development plans. 
 
 
 ###Credits
-
+- Lahiru Pathirage (lpsandaruwan)
+- Pathum Egodawatta (pathumego)
 
 ###License
 

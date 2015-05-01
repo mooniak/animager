@@ -11,7 +11,7 @@ Animager users Git - a version control system to record and grab all the stages 
 
 Animager uses imagemagick to convert the images. Supported image format list is [here.](http://www.imagemagick.org/script/formats.php) 
 
-Tested on Linux only.
+Tested on GNU/Linux only.
 
 ###Dependencies
   - ffmpeg

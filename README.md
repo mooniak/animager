@@ -1,7 +1,7 @@
-### how to install
+Animager
+=======
 
-cd into src and,
-sh install.sh
+
 
 ### create a video
 animager -p [profile name] -i [filepath/name] -o [output folder]
@@ -19,8 +19,7 @@ animager -pnew [pname] -h [height] -w [width] -f [frame rate]
 
 
 
-Animager
-=======
+
 
 Make videos of proccess in designing graphics in vector or raster editors ( Inkscape, GIMP ) easily.
 
@@ -40,11 +39,10 @@ Animager uses imagemagick to convert the images. Supported image format list is 
 
 ###Install
 
-### how to install
 
-``
+```
 cd src
-``
+```
 
 ```
 sh install.sh
@@ -52,15 +50,17 @@ sh install.sh
 
 ###How to use animager
 
-
-
 Once you are done and ready to generate a video..
 
 ```
 animager -p hd-720p -i [path-to-your-image] -o [path-to-your-output-folder]
 ```
+
+Example: `animager -p hd-720p -i /home/lahiru/sparkleshare/test/drawing.svg -o /home/lahiru/desktop`
+
 If you don't mention -o [path-to-your-output-folder] here, video will be saved as ~/animager/out.mp4
 
+###Other options
 
 - Get a list of profiles
 `animager -plist all`
@@ -68,8 +68,8 @@ If you don't mention -o [path-to-your-output-folder] here, video will be saved a
 - Create a new profile
 `animager -pnew profileName -h height -w weight -f frameRate`
 
-- Animage your file
-`animager -p profileName -i inputImage -o videoOutputLocation`
+Example: `animager -pnew test -h 240 -w 320 -f 30`
+
 
 
 

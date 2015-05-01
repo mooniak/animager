@@ -1,0 +1,157 @@
+/*
+Author - Pathum Egodawatta
+Site - mooniak.com
+*/
+@font-face {
+font-family:'StickNoBills-Regular';
+src: url('fonts/StickNoBills.eot');
+src: url('fonts/StickNoBills.eot?#iefix') format('embedded-opentype'),
+url('fonts/StickNoBills.woff') format('woff'),
+url('fonts/StickNoBills.ttf') format('truetype'),
+url('fonts/StickNoBills.svg#StickNoBills-Regular') format('svg');
+font-weight: 400;
+font-style: normal;
+font-stretch: normal;
+}
+@font-face {
+	font-family:'StickNoBills-Italic';
+	src: url('fonts/StickNoBills-Italic.eot');
+	src: url('fonts/StickNoBills-Italic.eot?#iefix') format('embedded-opentype'),
+		url('fonts/StickNoBills-Italic.woff') format('woff'),
+		url('fonts/StickNoBills-Italic.ttf') format('truetype'),
+		url('fonts/StickNoBills-Italic.otf') format('opentype'),
+		url('fonts/StickNoBills-Italic.svg#StickNoBills-Italic') format('svg');
+	font-weight: 400;
+	font-style: italic;
+	font-stretch: normal;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    background: rgb(255, 254, 193);
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: 100px;
+    font-style: italic;
+    font-weight: 900;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+
+a:hover {
+    background: #000;
+    color: #fff;
+}
+
+.description {
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+#libre_graphics_badge {
+    font-size: 36px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 55px;
+    width: 240px;
+    height: 240px;
+    background: #F44444;
+    color: #fff;
+    margin: 0 auto;
+    font-family: 'StickNoBills-Regular';
+    -ms-transform: rotate(-7deg);
+    /* IE 9 */
+    
+    -webkit-transform: rotate(-7deg);
+    /* Chrome, Safari, Opera */
+    
+    transform: rotate(-7deg);
+}
+
+#libre_graphics_badge:hover {}
+
+#lgb_descriptor {
+    font-size: 15px;
+}
+
+#footer {
+    font-size: 28px;
+}
+
+#footer a {
+    color: #444;
+}
+
+.button a {
+    color: #000;
+    font-size: 40px;
+    text-align: center;
+    border: 2px dotted #000;
+    display: block;
+    padding: 10px;
+}
+
+.button a:hover {
+    background: #000;
+    background: #ffffff;
+}

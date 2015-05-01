@@ -19,7 +19,7 @@ Animager uses imagemagick to convert the images. Supported image format list is 
   - C++ compiler - g++
 
 
-###Install
+###Install Animager
 
 
 ```
@@ -29,6 +29,12 @@ cd src
 ```
 sh install.sh
 ```
+
+###Setup with git and Sparkleshare
+
+We suggest you use Sparklshare to make the git commits to get a really nice staep by step video. Using Sparkleshare will allow Animager to get all the saved stages of your file into video. 
+
+Otherwise you can do `git commit` once a while to get the needed stages.
 
 ###How to use animager
 
@@ -40,7 +46,7 @@ animager -p hd-720p -i [path-to-your-image] -o [path-to-your-output-folder]
 
 Example: `animager -p hd-720p -i /home/lahiru/sparkleshare/test/drawing.svg -o /home/lahiru/desktop`
 
-If you don't mention -o [path-to-your-output-folder] here, video will be saved as ~/animager/out.mp4
+If you don't mention `-o [path-to-your-output-folder]`, video will be saved as `~/animager/out.mp4`
 
 ###Other options
 
@@ -63,5 +69,4 @@ Example: `animager -pnew test -h 240 -w 320 -f 30`
 
 ###License
 
-
-Animager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published bythe Free Software Foundation, either version 2 of the License, or (at your option) any later version.
+Animager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 2 of the License, or (at your option) any later version.  You are welcome to change and redistribute it under certain conditions. For more information see the license file.

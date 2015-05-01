@@ -21,7 +21,8 @@ Animager uses imagemagick to convert the images. Supported image format list is 
 
 ###Install Animager
 
-
+- Download the `zip` file. 
+- Open Terminal and do:
 ```
 cd src
 ```
@@ -30,15 +31,22 @@ cd src
 sh install.sh
 ```
 
-###Setup with git and Sparkleshare
+Now Animager is installed.
 
-We suggest you use Sparklshare to make the git commits to get a really nice staep by step video. Using Sparkleshare will allow Animager to get all the saved stages of your file into video. 
+###Setup with Git and/or Sparkleshare
 
-Otherwise you can do `git commit` once a while to get the needed stages.
+We suggest you use Sparklshare to make the git commits to get a really nice staep by step video. Using Sparkleshare will allow Animager to get all the saved stages of your file into video. Otherwise you can do `git commit` once a while to get the needed stages.
+
+- Install [Sparkleshare](http://sparkleshare.org/)
+- Set Up a Git repo in a remote service. If it is a public project you can use GitHub. BitBucket let youhave free private repos.
+- Set up the repo in Sparkleshare
+- Save your file in any of the supported formats and start working. Save once in a while as you would normally do. 
+
+
 
 ###How to use animager
 
-Once you are done and ready to generate a video..
+Once you are done and want to generate a video..
 
 ```
 animager -p hd-720p -i [path-to-your-image] -o [path-to-your-output-folder]

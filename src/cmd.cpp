@@ -9,7 +9,7 @@ using namespace std;
 int main( int argc, char* argv[] ){
     
     int i = 1;
-    string options = "python /opt/animager/process.py ";
+    string options = "python3 /opt/animager/process.py ";
     
     if( argc < 3 ){
 

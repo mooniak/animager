@@ -41,7 +41,8 @@ We suggest you use Sparklshare to make the git commits to get a really nice stae
 - Install [Sparkleshare](http://sparkleshare.org/)
 - Set Up a Git repo in a remote service. If it is a public project you can use GitHub. BitBucket let youhave free private repos.
 - Set up the repo in Sparkleshare
-- Save your file in any of the supported formats and start working. Save once in a while as you would normally do. 
+- Save your file in any of the supported formats and start working. Save once in a while as you would normally do.
+- A short video on set up with Inkscape [here](http://youtu.be/u9k0xSf0Yjs)
 
 
 

@@ -40,7 +40,7 @@ def gitGenTempImages( image, outputDir ):
         genTempImage( gitImage = image,
                       options = '',
                       outputDir = outputDir,
-                      outputName = str(count),
+                      outputName = str('%05d'%(count)),
                       outputExt = '.png'  )
         count += 1
 

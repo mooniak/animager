@@ -3,7 +3,7 @@
 
 import os, getpass
 
-
+'''
 def morphImages( inDir, outDir, value, inputExt ):
 
     print('\nmorphing images...\n')
@@ -16,16 +16,16 @@ def morphImages( inDir, outDir, value, inputExt ):
                + ' -morph 5 '
                + '/home/' + userName + '/animager/morph-cache/'
                + '\%05d.jpg')
-
+'''
 
 def genVideo( inputDir, frameRate, height , width , outputDir ):
 
-    morphImages( inputDir, outputDir, '10', '.png' )
+    ##morphImages( inputDir, outputDir, '10', '.png' )
 
     if height is '' and width is '':
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
+                   + ' -i ' + inputDir + '%05d.png '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
@@ -34,7 +34,7 @@ def genVideo( inputDir, frameRate, height , width , outputDir ):
     elif height is '' and width is not '':
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
+                   + ' -i ' + inputDir + '%05d.png '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
@@ -44,7 +44,7 @@ def genVideo( inputDir, frameRate, height , width , outputDir ):
     elif height is not '' and width is '':
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
+                   + ' -i ' + inputDir + '%05d.png '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '
@@ -54,7 +54,7 @@ def genVideo( inputDir, frameRate, height , width , outputDir ):
     else:
         os.system( 'ffmpeg '
                    +'-framerate ' + frameRate
-                   + ' -i ' + inputDir + 'morph-cache\/\%05d.jpg '
+                   + ' -i ' + inputDir + '%05d.png '
                    + '-c:v h264 '
                    + '-r 30 '
                    + '-pix_fmt yuv420p '

@@ -75,16 +75,18 @@ def main( argv ):
     keepTemp = input( '\nKeep temporary image files ? (y/n) ' )
 
     if keepTemp is 'y':
+        print( "\nWarning ! keeping temporary images will cost hard drive space."
+               + "\nTemporary images are in ~/animager/")
         tempFold = input( 'Enter directory name : ' )
         os.system( 'mkdir -p /home/' + userName
                    + '/animager/' + tempFold )
         os.system( 'mv /home/' + userName + '/animager/*.png /home/'
                    + userName + '/animager/' + tempFold )
-        os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
+        ##os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
 
     else:
         os.system( 'rm -r /home/' + userName + '/animager/*.png' )
-        os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
+        ##os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
 
 
 if __name__ == "__main__":

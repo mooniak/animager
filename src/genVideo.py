@@ -3,10 +3,10 @@
 
 import os, getpass
 
-'''
-def morphImages( inDir, outDir, value, inputExt ):
 
-    print('\nmorphing images...\n')
+def morphImages( inDir, value, inputExt ):
+
+    print('generating frames for crossfade...\n')
     userName = getpass.getuser()
     os.system( 'mkdir -p ' + '/home/' + userName
                + '/animager/morph-cache' )
@@ -15,8 +15,8 @@ def morphImages( inDir, outDir, value, inputExt ):
                + ' -delay ' + value
                + ' -morph 5 '
                + '/home/' + userName + '/animager/morph-cache/'
-               + '\%05d.jpg')
-'''
+               + '\%05d.png')
+
 
 def genVideo( inputDir, frameRate, height , width , outputDir ):
 

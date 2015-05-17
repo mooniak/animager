@@ -15,9 +15,9 @@ def genTempImage( gitImage, options,
                + outputExt )
 
 
-def gitCommitArray():
+def gitCommitArray( image ):
     
-    os.system( 'git log --pretty=%h > log' )
+    os.system( 'git log --pretty=%h '+ image + ' > log' )
     commits = open('log').read().splitlines()
     return commits
 
@@ -30,7 +30,7 @@ def gitCheckoutOld( commitHash ):
 def gitGenTempImages( image, outputDir ):
     
     os.system( 'mkdir -p ' + outputDir )
-    commits = gitCommitArray()
+    commits = gitCommitArray( image )
     commits.reverse()
 
     count = 1

@@ -53,12 +53,11 @@ Once you are done and want to generate a video..
 ```
 animager -p profileName -i [path-to-your-image] -o [path-to-your-output-folder]
 ```
+Included profiles : `hd-720p` `hd-1080p` `sd-360` `sd-480`
 
 Example: `animager -p hd-720p -i /home/lahiru/sparkleshare/test/drawing.svg -o /home/lahiru/desktop`
 
-If you don't mention `-o [path-to-your-output-folder]`, video will be saved as `~/animager/out.mp4`
-
-Included profiles : `hd-720p` `hd-1080p` `sd-360` `sd-480`
+If you don't mention `-o [path-to-your-output-folder]`, video will be saved in root folder as `~/animager/out.mp4`
 
 
 ###Other options

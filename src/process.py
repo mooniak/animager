@@ -2,6 +2,7 @@
 
 import os, sys, getpass
 from genImages import gitGenTempImages
+from genVideo import morphImages
 from genVideo import genVideo
 from profiles import readProfile
 from profiles import writeProfile
@@ -15,6 +16,8 @@ def main( argv ):
     frameRate = '25'
     height = ''
     width = ''
+    morph = '2'
+    morphSet = False
     vOut = '/home/' + userName + '/animager/'
 
     if '-p' in argv:
@@ -66,25 +69,36 @@ def main( argv ):
     #print(frameRate)
     #print(vOut)
     #sys.exit(0)
-    
-    gitGenTempImages( inputImage, '/home/' + userName + '/animager/' )
-    
-    genVideo( '/home/' + userName + '/animager/',
-              frameRate, height, width, vOut )
 
+
+    crossfade = input( '\nAdd crossfade effect ? (y/n)' )
+
+    if crossfade is 'y':
+        value = input( 'Enter crossfade value value (default : 2): ' )
+        if value is '':
+            value = 2
+            
+        gitGenTempImages( inputImage, '/home/' + userName + '/animager/' )
+        morphImages( '/home/' + userName + '/animager/', value, '.png' )
+        genVideo( '/home/' + userName + '/animager/morph-cache/', frameRate,
+                  height, width, vOut )
+        os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
+        
+    else:
+        gitGenTempImages( inputImage, '/home/' + userName + '/animager/' )
+        genVideo( '/home/' + userName + '/animager/', frameRate, height, width, vOut )
+        
     keepTemp = input( '\nKeep temporary image files ? (y/n) ' )
-
     if keepTemp is 'y':
+        print( "\nWarning ! keeping temporary images will cost hard drive space."
+               + "\nTemporary images are in ~/animager/")
         tempFold = input( 'Enter directory name : ' )
-        os.system( 'mkdir -p /home/' + userName
-                   + '/animager/' + tempFold )
+        os.system( 'mkdir -p /home/' + userName + '/animager/' + tempFold )
         os.system( 'mv /home/' + userName + '/animager/*.png /home/'
                    + userName + '/animager/' + tempFold )
-        os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
 
     else:
         os.system( 'rm -r /home/' + userName + '/animager/*.png' )
-        os.system( 'rm -r /home/' + userName + '/animager/morph-cache/*' )
 
 
 if __name__ == "__main__":

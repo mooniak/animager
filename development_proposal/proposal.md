@@ -78,8 +78,11 @@ The proposed process goes like this.
 
 ##GUI
 
-I think wizard like gui would make sense. 
+The GUI will be implemented as a web app / broswer app.
 
+A wizard like gui would make sense. 
+
+- Select local git repo / give link to remote git repo
 - Select different options in steps and generate video. 
 - Give option to save the seetings as a template.
 - So It is like a one time set up wizard.

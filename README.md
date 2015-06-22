@@ -81,4 +81,4 @@ Example: `animager -pnew test -h 240 -w 320 -f 30`
 
 ###License
 
-Animager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 2 of the License, or (at your option) any later version.  You are welcome to change and redistribute it under certain conditions. For more information see the license file.
+Animager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3 of the License, or (at your option) any later version.  You are welcome to change and redistribute it under certain conditions. For more information see the [LICENSE](LICENSE)file.
